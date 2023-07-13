@@ -1,5 +1,6 @@
-FROM node:latest
+FROM node:alpine
 WORKDIR /app
+ADD package*.json ./
+RUN yarn install
 ADD . .
-RUN npm install
-CMD node index.js
+CMD yarn run start
